@@ -102,3 +102,9 @@ def predict():
 @app.route("/", methods=['GET'])
 def index():
     return render_template("index.html")
+
+if __name__ == '__main__':
+    host, port = 'challenge.localhost', 80
+    app.secret_key = os.urandom(8)
+    app.config['SERVER_NAME'] = f'{host}:{port}'
+    app.run(host, port)
