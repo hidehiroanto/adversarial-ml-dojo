@@ -1,0 +1,8 @@
+name: Model Evasion
+challenges:
+  - id: dog-or-frog
+    name: Dog or Frog
+    image: hidehiroanto/challenge-ml:dog-or-frog
+    interfaces:
+      - name: Challenge
+        port: 80

@@ -1,0 +1,9 @@
+id: adversarial-ml-dojo
+name: Adversarial Machine Learning Dojo
+type: public
+modules:
+  - id: prompt-injection
+  - id: model-evasion
+  - id: model-inversion
+  - id: model-extraction
+  - id: data-poisoning
