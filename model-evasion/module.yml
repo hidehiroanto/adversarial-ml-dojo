@@ -3,3 +3,10 @@ challenges:
   - id: dog-or-frog
     name: Dog or Frog
     image: hidehiroanto/challenge-ml:dog-or-frog
+    interfaces:
+      - name: Challenge
+        port: 80
+      - name: Code
+        port: 8080
+      - name: Desktop
+        port: 5900

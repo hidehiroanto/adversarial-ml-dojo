@@ -5,4 +5,7 @@ GUNICORN_LOG=/var/log/gunicorn
 find /challenge -type d -exec chmod 00755 {} \;
 find /challenge -type f -exec chmod 644 {} \;
 
-python3 /challenge/server.py &
+export PYTHONDONTWRITEBYTECODE=1
+mkdir -p $GUNICORN_LOG
+cd /challenge
+gunicorn -b :80 --access-logfile $GUNICORN_LOG/access.log --log-file $GUNICORN_LOG/error.log -D server:app
