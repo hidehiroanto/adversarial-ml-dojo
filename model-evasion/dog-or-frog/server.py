@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request
 import io
 from imagehash import phash
+import json
 from keras import applications
 from keras_applications import imagenet_utils
 from keras.applications.mobilenet import decode_predictions, preprocess_input
@@ -17,7 +18,9 @@ warnings.filterwarnings('ignore')
 # Probably not needed for production, but I have GPU support enabled on my version
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
-imagenet_utils.CLASS_INDEX_PATH = '/challenge/static/imagenet_class_index.json'
+with open('/challenge/static/imagenet_class_index.json') as f:
+    imagenet_utils.CLASS_INDEX = json.load(f)
+
 TREE_FROG_ID = 31
 TREE_FROG_STR = "tree_frog"
 THRESHOLD = 0.95
