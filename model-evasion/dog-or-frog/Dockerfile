@@ -2,6 +2,6 @@
 
 FROM python:3.6.6-slim
 
-WORKDIR /challenges
+WORKDIR /challenge
 ADD requirements.txt .
-RUN pip install -v --disable-pip-version-check --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt

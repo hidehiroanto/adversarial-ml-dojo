@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 
-import numpy as np
-from PIL import Image
 from flask import Flask, render_template, request
+import io
+from imagehash import phash
+import json
 from keras.applications.mobilenet import decode_predictions, preprocess_input
 from keras.models import load_model
 from keras.preprocessing.image import img_to_array
-import io
-from imagehash import phash
-import warnings
+import numpy as np
 import os
-
+from PIL import Image
+import warnings
 
 warnings.filterwarnings('ignore')
 # Probably not needed for production, but I have GPU support enabled on my version
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
+with open('/challenge/static/imagenet_class_index.json') as f:
+    CLASS_INDEX = json.load(f)
 
 TREE_FROG_ID = 31
 TREE_FROG_STR = "tree_frog"
