@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request
 import io
 from imagehash import phash
+from keras import applications
 from keras_applications import imagenet_utils
 from keras.applications.mobilenet import decode_predictions, preprocess_input
 from keras.models import load_model
@@ -102,9 +103,3 @@ def predict():
 @app.route("/", methods=['GET'])
 def index():
     return render_template("index.html")
-
-if __name__ == '__main__':
-    host, port = 'challenge.localhost', 80
-    app.secret_key = os.urandom(8)
-    app.config['SERVER_NAME'] = f'{host}:{port}'
-    app.run(host, port)
