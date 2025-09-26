@@ -54,19 +54,16 @@ def prepare_image(image):
     # return the processed image
     return image
 
-
 def get_predictions(image):
     preds = model.predict(image)
     dec_preds = decode_predictions(preds)[0]
     _, label1, conf1 = decode_predictions(preds)[0][0]
     return label1, conf1, dec_preds
 
-
 def hash_hamming_distance(h1, h2):
     s1 = str(h1)
     s2 = str(h2)
     return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(s1, s2)))
-
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -80,7 +77,6 @@ def predict():
     # ensure an image was properly uploaded to our endpoint
     if request.method == "POST":
         if request.files.get("frog"):
-
             frog_img = Image.open(io.BytesIO(request.files["frog"].read()))
 
             frog_dist = hash_hamming_distance(phash(frog_img), phash(base_img))
@@ -103,6 +99,6 @@ def predict():
 
     return "Image processing fail"
 
-@app.route("/", methods=['GET'])
+@app.route("/", methods=["GET"])
 def index():
     return render_template("index.html")
