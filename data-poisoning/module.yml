@@ -1,2 +1,8 @@
 name: Data Poisoning
 challenges:
+  - id: credit-check
+    name: Credit Check
+    image: hidehiroanto/challenge-ml:credit-check
+    interfaces:
+      - name: Challenge
+        port: 80
