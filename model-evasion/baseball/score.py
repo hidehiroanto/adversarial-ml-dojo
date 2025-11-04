@@ -9,7 +9,7 @@ from sklearn.gaussian_process.kernels import RBF
 app = flask.Flask(__name__)
 
 def get_classification(pitches):
-    gpc = joblib.load('baseball_gpc.joblib')
+    gpc = joblib.load('/challenge/baseball_gpc.joblib')
     predicted_user = gpc.predict(pitches.flatten().reshape(1, -1))
     proba = gpc.predict_proba(pitches.flatten().reshape(1, -1)).max()
     if predicted_user in ['henry']:
