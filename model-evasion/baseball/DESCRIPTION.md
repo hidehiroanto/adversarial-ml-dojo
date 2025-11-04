@@ -5,4 +5,4 @@ Henry has to miss baseball tryouts to get ready for his date. Can you cover for 
 
 ## Objective
 
-Throw 15 pitches at x,y (each bounded on `[0, 29]`). Check out `test_pitch.json` to see the expected format, and then send the data to `http://0.0.0.0/run`. Can you throw 15 pitches to get classified as Henry?
+Throw 15 pitches at `x, y` (each bounded on `[0, 29]`). Check out `test_pitch.json` to see the expected format. Can you throw 15 pitches to get classified as Henry?
