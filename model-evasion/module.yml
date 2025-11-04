@@ -1,5 +1,8 @@
 name: Model Evasion
 challenges:
+  - id: baseball
+    name: Baseball
+    image: hidehiroanto/challenge-ml:baseball
   - id: dog-or-frog
     name: Dog or Frog
     image: hidehiroanto/challenge-ml:dog-or-frog
